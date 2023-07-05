@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherapp</title>
+    
+</head>
+<body style="background-color: orange;  text-align:center;"  >
+    <h1 style="font-family:verdana;"> LIVE WEATHER UPDATES</h1>
+   <bdo dir="rtl"> This is just some text written in the reverse direction ..let's see if you noticed </bdo>
+    
+    
+    <hr style="color: green;">
+    <!-- # see how to resize the box below and add search icon in place of submit  -->
+    <form action="", method="post">
+        {% csrf_token %}
+        <p style="font-family:courier;">enetr state/city to search below</p>
+        <input type="text", name="city" /> 
+        <input type="submit" value="search" />    
+        <!-- # see to use a search icon later on  -->
+    </form>
+    {% if country_code %} # see how to handle error in case of wrong input .. think of a better condition to use here
+    <!-- # try to see if %if state%, or %if coordinate% ..etc would work in place of the above..test to see what happens  -->
+    <h2>Country:{{requst.user}} <br> Country_code:{{country_code}} </h2>
+    <h1>{{state}}</h1>
+    <p> coordinate:{{coordinate}}</p>
+    <p> temperature:{{temperature}} <sup>o</sup>C</p>
+    <p> pressure:{{pressure}}</p>
+    <p> humidity:{{humidity}}</p>
+    {% elif state %}
+    <h4>Can't find details for {{state}}, pls check if you misspelled the State or Check your internet connection </h4>
+    {% else %}
+    <h3>you are yet to input any state or city </h3>
+    {%endif%}
+    
+    <hr>  <p><i> ignore all the text below the line ..just trying out some stuffs </i></p>
+    
+    <s> # see how to handle when a user inputs wrong search variable.. how to make the wrong input take effect</s> 
+    
+</body>
+</html>
+
+<p>##########################################</p>
+
