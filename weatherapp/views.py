@@ -13,7 +13,7 @@ def index(request):
     if request.method == 'POST':
         location = request.POST['city']
         try:
-            address = 'http://api.openweathermap.org/data/2.5/weather?q='+location+'&appid=1c663d7a74e37f5646ecb265d6efe177'
+            address = 'http://api.openweathermap.org/data/2.5/weather?q='+location+'&appid=#add your open weather api access id #'
             res = ul.urlopen(address).read()
             json_data = json.loads(res)
             data = { 'country_code': str(json_data['sys']['country']),
